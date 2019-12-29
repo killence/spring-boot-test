@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div>
+        <h1>基本对象</h1>
+        <p th:text="${#request.getAttribute('request')}"></p>
+        <br/>
+        <!--session 直接使⽤ . 即可获取到 session 中的值-->
+        <p th:text="${session.session}"></p>
+        <br/>
+         Established locale country: <span th:text="${#locale.country}">CN</span>.
+    </div>
+    <div>
+        <h1>dates</h1>
+<!--        格式化时间-->
+        <p th:text="${#dates.format(date,'yyyy-MM-dd HH:mm:ss')}">date</p>
+<!--        创建当前时间，精确到天-->
+        <p th:text="${#dates.createToday()}">date</p>
+<!--        创建当前时间，精确到秒-->
+        <p th:text="${#dates.createNow()}">date</p>
+    </div>
+
+    <div>
+        <h1>strings</h1>
+
+    </div>
+</body>
+</html>
