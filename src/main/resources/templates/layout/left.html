@@ -2,10 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Hello</title>
+    <title>left</title>
 </head>
 <body>
-<div th:insert="layout/coptright :: copyright"></div>
-<h1 th:text="${message}">Hello World</h1>
+    <left th:fragment="left">
+        <h1>我是左侧</h1>
+    </left>
 </body>
 </html>
