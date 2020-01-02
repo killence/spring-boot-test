@@ -45,6 +45,7 @@ public class FileUploadController {
             redirectAttributes.addFlashAttribute("message",
                     "You successfully uploaded '" + file.getOriginalFilename() + "'");
         } catch (IOException e) {
+            System.out.println(10);
             e.printStackTrace();
         }
         return "redirect:show";
