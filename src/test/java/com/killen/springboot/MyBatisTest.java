@@ -38,4 +38,9 @@ public class MyBatisTest {
             System.out.println(user);
         }
     }
+
+    @Test
+    public void delete(){
+        userMapper.delete(2L);
+    }
 }

@@ -1,8 +1,7 @@
-package com.killen.springboot.mapper;
+package com.killen.springboot.test1;
 
 import com.killen.springboot.entity.User;
 import org.apache.ibatis.annotations.Delete;
-import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -13,7 +12,7 @@ import java.util.List;
  * @Date 2020-01-03
  * @Version V1.0
  **/
-public interface UserMapper {
+public interface User1Mapper {
 
     void insert(User user);
 
