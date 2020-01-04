@@ -1,8 +1,11 @@
 package com.killen.springboot.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 import java.io.Serializable;
 
 /**
@@ -14,13 +17,28 @@ import java.io.Serializable;
  **/
 @Data
 @Builder
+//注明为实体类
+@Entity
+//数据库对应的表users
+@Table(name = "users")
+@AllArgsConstructor
+@NoArgsConstructor
 public class User implements Serializable {
-
-    private static final long serialVersionUID = 1L;
-
+    //主键
+    @Id
+    @GeneratedValue
     private Long id;
+    @Column(nullable = false, unique = true)
     private String userName;
+    @Column(nullable = false)
     private String passWord;
-    private String userSex;
+    @Column(nullable = false, unique = true)
+    private String email;
+    //nullable该字段是否为null,unique该字段是否重复
+    @Column(nullable = true, unique = true)
     private String nickName;
+    @Column(nullable = false)
+    private String regTime;
+
+
 }
