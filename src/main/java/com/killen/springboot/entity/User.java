@@ -21,8 +21,8 @@ import java.io.Serializable;
 @Entity
 //数据库对应的表users
 @Table(name = "users")
-@AllArgsConstructor
 @NoArgsConstructor
+@AllArgsConstructor
 public class User implements Serializable {
     //主键
     @Id
@@ -39,6 +39,5 @@ public class User implements Serializable {
     private String nickName;
     @Column(nullable = false)
     private String regTime;
-
 
 }
