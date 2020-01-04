@@ -1,6 +1,7 @@
 package com.killen.springboot;
 
 import com.killen.springboot.entity.UserDetail;
+import com.killen.springboot.entity.Userinfo;
 import com.killen.springboot.param.UserDetailParam;
 import com.killen.springboot.repository.UserDetailRepository;
 import com.killen.springboot.server.UserDetailServer;
@@ -12,6 +13,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * @ClassName UserDetailRepository
@@ -50,6 +52,14 @@ public class UserDetailRepositoryTest {
         Page<UserDetail> page1= userDetailServer.findByCondition(param,pageable);
         for (UserDetail userDetail:page1){
             System.out.println("userDetail: "+userDetail.toString());
+        }
+    }
+
+    @Test
+    public void testUserInfo(){
+        List<Userinfo> users = userDetailRepository.findUserInfo("吃鸡游戏");
+        for (Userinfo user : users) {
+            System.out.println("{"+user.getUserName()+'='+user.getIntroduction()+"="+user.getEmail()+"="+user.getHobby()+"}");
         }
     }
 
