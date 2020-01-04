@@ -9,11 +9,14 @@ package com.killen.springboot.repository;
  **/
 
 import com.killen.springboot.entity.User;
+import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 /**
  * 继承JpaRepository
@@ -35,7 +38,10 @@ public interface UserRepository extends JpaRepository<User, Long> {
     @Query("delete from User where id = ?1")
     void deleteById(Long id);
 
-   
 
+    @Query(value = "select * from users",nativeQuery = true)
+    List<User> findAllUser();
 
+    @Query("select u from User u")
+    Page<User> findALL(Pageable pageable);
 }
