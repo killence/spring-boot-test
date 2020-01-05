@@ -4,8 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
-import java.util.Date;
+import java.io.Serializable;
 
 /**
  * @ClassName User
@@ -14,22 +13,21 @@ import java.util.Date;
  * @Date 2020-01-05
  * @Version V1.0
  **/
-@Entity
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Table(name = "users")
-public class User {
-    @Id
-    @GeneratedValue
-    private long id;
-    @Column(nullable = false, unique = true)
+public class User implements Serializable {
+    private static final long serialVersionUID = 1L;
+    private Long id;
     private String userName;
-    @Column(nullable = false)
-    private String passWord;
-    @Column(nullable = false)
-    private int age;
-    @Column(nullable = false)
-    private Date regTime;
+    private String password;
+    private String email;
+    private String nickname;
+    private String regTime;
 
+    public User(String userName, String password, String email, String nickname, String regTime) {
+        this.userName = userName;
+        this.password = password;
+        this.email = email;
+        this.nickname = nickname;
+        this.regTime = regTime;
+    }
 }

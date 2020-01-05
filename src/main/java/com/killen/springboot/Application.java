@@ -14,11 +14,8 @@ import org.springframework.boot.web.servlet.support.SpringBootServletInitializer
  * 启动类需要添加 Servlet 的支持：
  **/
 @SpringBootApplication
-public class Application  extends SpringBootServletInitializer {
-    @Override
-    protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
-        return application.sources(Application.class);
-    }
+public class Application {
+
     public static void main(String[] args) {
         SpringApplication.run(Application.class,args);
     }
